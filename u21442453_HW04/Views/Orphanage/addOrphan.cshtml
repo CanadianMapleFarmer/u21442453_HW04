@@ -1,0 +1,40 @@
+﻿@model u21442453_HW04.Models.Orphan
+
+@{
+    ViewBag.Title = "Add an Orphan";
+}
+
+<h2>Add an Orphan to the system.</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label for="fName">First Name:</label>
+            <input type="text" name="fName" class="form-control" id="fName" />
+            <label for="lName">Last Name:</label>
+            <input type="text" name="lName" class="form-control" id="lName" />
+            <label for="age">Age:</label>
+            <input type="number" name="age" class="form-control" value="7" min="7" max="18" id="age" />
+            <br />
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+            <br />
+            <br />
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <br />
+            <p class="@ViewBag.Style" style="max-width: fit-content; margin-top: 20px"><strong>@ViewBag.Message</strong></p>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

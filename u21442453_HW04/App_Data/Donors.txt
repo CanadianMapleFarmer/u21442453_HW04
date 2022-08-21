@@ -1,0 +1,5 @@
+﻿Gerhard,Kloppers,20,Kloppersgerhard8@gmail.com,0810451719*Food,2
+Natalie,Steyn,25,natalie@styen.com,0847458112*Sanitary,3
+Piet,Pompies,20,piet@pompies.com,0214521152*Clothes,2
+Sarah,Knowles,17,sarah@knowles.com,0110235656*Hygiene,3
+Nico,vw,52,nico@vw.com,0514875858*Food,1

@@ -1,0 +1,44 @@
+﻿@model List<u21442453_HW04.Models.FosterParent>
+@{
+    ViewBag.Title = "fosterList";
+    int c = 1;
+}
+
+<h2>List of foster parents requests.</h2>
+<div class="table-responsive">
+<table class="table">
+    <thead>
+    <tr>
+        <th>Foster Parents Table</th>
+    </tr>
+    <tr>
+        <th>Full Name:</th>
+        <th>Contact Details:</th>
+        <th>Grade to Foster</th>
+        <th>Controls</th>
+    </tr>
+    </thead>
+    <tbody>
+        @foreach (var fp in Model)
+        {
+            <tr>
+                <td>@(fp.GetFullName())</td>
+                <td>@(fp.getContactDetails())</td>
+                <td>@(fp.GetFosterOrphanGrade())</td>
+                <td>
+                    @using (Html.BeginForm("deleteFosterParent", "Orphanage", FormMethod.Post))
+                    {
+                        @Html.Hidden("index", c)
+                        <input type="hidden" name="index" value="@c" />
+                        <button type="submit" name="submit" class="btn btn-danger" style="margin-left: 5px">
+                            <i class="fa-solid fa-trash"></i> Delete
+                        </button>
+                    }
+                </td>
+            </tr>
+          c++;
+        }
+    </tbody>
+</table>
+</div>
+

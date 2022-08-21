@@ -1,0 +1,180 @@
+﻿@model u21442453_HW04.Models.NeedsVM
+@using System;
+@{
+    ViewBag.Title = "Orphanage Needs";
+    decimal nCount = 0;
+    decimal sCount = 0;
+    var orphans = Model.orphans;
+    var donors = Model.donors;
+
+    foreach (var orphan in orphans)
+    {
+        nCount++;
+        if (orphan.Gender == "Female")
+        {
+            sCount++;
+        }
+    }
+    decimal dFCount = 0;
+    decimal dCCount = 0;
+    decimal dSCount = 0;
+    decimal dHCount = 0;
+    foreach (var donor in donors)
+    {
+        switch (donor.GetDonationItemType())
+        {
+            case "Food":
+                dFCount += donor.GetDonationItemQuantity();
+                break;
+            case "Clothes":
+                dCCount += donor.GetDonationItemQuantity();
+                break;
+            case "Sanitary":
+                dSCount += donor.GetDonationItemQuantity();
+                break;
+            case "Hygiene":
+                dHCount += donor.GetDonationItemQuantity();
+                break;
+        }
+    }
+    decimal fdp = (dFCount / nCount) * 100;
+    decimal cdp = (dCCount / nCount) * 100;
+    decimal sdp = (dSCount / nCount) * 100;
+    decimal hdp = (dHCount / nCount) * 100;
+}
+<h2>Current orphanage needs.</h2>
+
+<div class="row row-cols-lg-2 row-cols-md-2 row-cols-sm-2 d-flex">
+    <div class="col" style="padding: 10px">
+        <label for="f">Food Status:</label>
+        <div class="progress" id="f" style="width: 100%">
+            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="@dFCount" aria-valuemin="0" aria-valuemax="@nCount" style="width: @(Math.Round(fdp,0))%">
+                @(Math.Round(fdp,0))%
+            </div>
+        </div>
+        <table class="table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th colspan="3">Food Donor Details</th>
+                </tr>
+                <tr>
+                    <th>Full Name</th>
+                    <th>Contact Details</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var donor in donors)
+                {
+                    if (donor.GetDonationItemType() == "Food")
+                    {
+                        <tr>
+                            <td>@donor.GetFullName()</td>
+                            <td>@donor.getContactDetails()</td>
+                            <td>@donor.GetDonationItemQuantity()</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col" style="padding: 10px">
+        <label for="f">Clothes Status:</label>
+        <div class="progress" id="f" style="width: 100%">
+            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="@dCCount" aria-valuemin="0" aria-valuemax="@nCount" style="width: @(Math.Round(cdp,0))%">
+                @(Math.Round(cdp,0))%
+            </div>
+        </div>
+        <table class="table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th colspan="3">Clothes Donor Details</th>
+                </tr>
+                <tr>
+                    <th>Full Name</th>
+                    <th>Contact Details</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var donor in donors)
+                {
+                    if (donor.GetDonationItemType() == "Clothes")
+                    {
+                        <tr>
+                            <td>@donor.GetFullName()</td>
+                            <td>@donor.getContactDetails()</td>
+                            <td>@donor.GetDonationItemQuantity()</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col" style="padding: 10px">
+        <label for="f">Sanitary Status:</label>
+        <div class="progress" id="f" style="width: 100%">
+            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="@dSCount" aria-valuemin="0" aria-valuemax="@nCount" style="width: @(Math.Round(sdp,0))%">
+                @(Math.Round(sdp,0))%
+            </div>
+        </div>
+        <table class="table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th colspan="3">Sanitary Donor Details</th>
+                </tr>
+                <tr>
+                    <th>Full Name</th>
+                    <th>Contact Details</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var donor in donors)
+                {
+                    if (donor.GetDonationItemType() == "Sanitary")
+                    {
+                        <tr>
+                            <td>@donor.GetFullName()</td>
+                            <td>@donor.getContactDetails()</td>
+                            <td>@donor.GetDonationItemQuantity()</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col" style="padding: 10px">
+        <label for="f">Hygiene Status:</label>
+        <div class="progress" id="f" style="width: 100%">
+            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="@dHCount" aria-valuemin="0" aria-valuemax="@nCount" style="width: @(Math.Round(hdp,0))%">
+                @(Math.Round(hdp,0))%
+            </div>
+        </div>
+        <table class="table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th colspan="3">Hygiene Donor Details</th>
+                </tr>
+                <tr>
+                    <th>Full Name</th>
+                    <th>Contact Details</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var donor in donors)
+                {
+                    if (donor.GetDonationItemType() == "Hygiene")
+                    {
+                        <tr>
+                            <td>@donor.GetFullName()</td>
+                            <td>@donor.getContactDetails()</td>
+                            <td>@donor.GetDonationItemQuantity()</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

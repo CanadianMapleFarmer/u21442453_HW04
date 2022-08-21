@@ -1,0 +1,43 @@
+﻿@model u21442453_HW04.Models.HelperVM
+@{
+    ViewBag.Title = "Homework Help Page";
+    var orphans = Model.orphans;
+    var helpers = Model.helpers;
+
+
+    }
+
+<h2>Current Homework Help.</h2>
+
+<div class="row row-cols-lg-2 row-cols-md-2 row-cols-sm-2 d-flex">
+    @foreach (var orphan in orphans)
+    {
+    <div class="col" style="padding: 10px">
+        <table class="table-striped table-bordered">
+            <thead>
+            <tr>
+                <th colspan="3">@orphan.getGrade() Helpers</th>
+            </tr>
+            <tr>
+                <th>Full Name:</th>
+                <th>Contact Details:</th>
+                <th>Grade To Help:</th>
+            </tr>
+            </thead>
+            <tbody>
+                @foreach (var helper in helpers)
+                {
+                    if(helper.GetHelperGrade() == orphan.getGrade())
+                    {
+                        <tr>
+                            <td>@(helper.GetFullName())</td>
+                            <td>@(helper.getContactDetails())</td>
+                            <td>@(helper.GetHelperGrade())</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+    }
+</div>
