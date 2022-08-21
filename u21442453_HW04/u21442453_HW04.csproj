@@ -268,7 +268,9 @@
     <Content Include="Views\FosterParent\becomeFosterParent.cshtml" />
     <Content Include="Views\Orphanage\fosterList.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\img\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

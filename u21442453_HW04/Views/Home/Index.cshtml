@@ -1,5 +1,7 @@
-﻿@{
+﻿@using System.IO;
+@{
     ViewBag.Title = "Home Page";
+    var imgRoute = Server.MapPath("~/App_Data/img/CSD_HW04.png");
 }
 
 <div class="jumbotron">
@@ -19,7 +21,7 @@
         </div>
         <div id="collapse1" class="panel-collapse collapse">
             <div class="panel-body table-responsive">
-                <table class="table" >
+                <table class="table">
                     <tr>
                         <th colspan="3">System Name: Bermuda Management System</th>
                     </tr>
@@ -343,6 +345,18 @@
                     </tr>
                 </table>
             </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+                    Class Structure Diagram
+                </a>
+            </h4>
+        </div>
+        <div id="collapse5" class="panel-collapse collapse">
+            <img src="~/App_Data/img/CSD_HW04.png" alt="Class Structure Diagram" />
         </div>
     </div>
 </div>
