@@ -3,3 +3,4 @@ Micheal,Jay,14,Male
 Leanie,Saunders,16,Female
 Jarrod,Spies,8,Male
 Thabo,Tsepha,17,Male
+Lea,Jay,12,Female
